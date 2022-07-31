@@ -1,3 +1,4 @@
+-- NOTED THAT DATABASE WAS CREATED AS A COLLECTIVE TEAM EFFORT.
 -- Create Shape Table
 -- Created Temporal tables Ref link below:
 -- https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables?view=sql-server-ver15
