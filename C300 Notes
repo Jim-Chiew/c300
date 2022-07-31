@@ -1,0 +1,45 @@
+https://openvinotoolkit.github.io/cvat/docs/manual/basics/settings/
+
+Docker go in sql and use sqlcmd:
+docker exec -it sql1 "bash"
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<Password here>"
+
+
+______________________  JetSon  ________________________________________
+deepstream-test5 app config and .c file path:
+cd /opt/nvidia/deepstream/deepstream-6.0/sources/apps/sample_apps/deepstream-test5
+
+
+Run:
+./deepstream-test5-app -c configs/test5_config_file_src_infer.txt -p 1
+
+
+run Deepstream-test1-app:
+/opt/nvidia/deepstream/deepstream-6.0/sources/apps/sample_apps/deepstream-test1$ ./deepstream-test1-app /opt/nvidia/deepstream/deepstream-6.0/samples/streams/sample_720p.h264 
+
+run Deepstream-app:
+:/opt/nvidia/deepstream/deepstream-6.0/samples/configs/deepstream-app$ deepstream-app -c source8_1080p_dec_infer-resnet_tracker_tiled_display_fp16_nano.txt
+
+
+config_infer_primary_frcnn_jetson.txt
+/opt/nvidia/deepstream/deepstream-6.0/samples/configs/tao_pretrained_models$ sudo deepstream-app -c deepstream_app_source1_dashcamnet_vehiclemakenet_vehicletypenet.txt
+
+
+Posiible fixes when running:
+sudo cp -r /usr/local/cuda-10.2/targets/aarch64-linux/include/* /usr/include/aarch64-linux-gnu/
+
+cd /opt/nvidia/deepstream/deepstream/sources/libs/nvdsinfer_customparser
+
+
+
+
+
+______________________Node-Red_________________________
+Run Node-Red in jetson:
+docker run -it -p 1880:1880 --name mynodered nodered/node-red
+
+Enter Docker container:
+sudo docker exec -it <container name> /bin/bash
+
+Node-Red Settings file:
+/usr/src/node-red/node_modules/node-red/settings.js
