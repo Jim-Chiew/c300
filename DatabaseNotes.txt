@@ -1,0 +1,24 @@
+Azure sql database Create user:
+CREATE LOGIN "<Azure user email>" FROM EXTERNAL PROVIDER;  (In Master)
+CREATE USER "<Azure user email>" FROM LOGIN "<Azure user email>";  (In Database)
+ALTER ROLE db_owner ADD MEMBER "<Azure user email>";  (In Database)
+
+
+CREATE login "<Username>" WITH PASSWORD = '<Password>';
+CREATE USER "<Username>" FROM LOGIN "<Username>";
+ALTER ROLE db_datawriter ADD MEMBER "<Username>";
+ALTER ROLE db_datareader ADD MEMBER "<Username>";
+
+
+
+_____________________________________"View all member and roles"_____________________________________________
+
+SELECT    roles.principal_id                            AS RolePrincipalID
+    ,    roles.name                                    AS RolePrincipalName
+    ,    database_role_members.member_principal_id    AS MemberPrincipalID
+    ,    members.name                                AS MemberPrincipalName
+FROM sys.database_role_members AS database_role_members  
+JOIN sys.database_principals AS roles  
+    ON database_role_members.role_principal_id = roles.principal_id  
+JOIN sys.database_principals AS members  
+    ON database_role_members.member_principal_id = members.principal_id;  
