@@ -1,6 +1,6 @@
 Azure sql database Create user:
 CREATE LOGIN "<Azure user email>" FROM EXTERNAL PROVIDER;  (In Master)
-CREATE USER "<Azure user email>" FROM LOGIN "<Azure user email>";  (In Database)
+CREATE USER "<Azure user email>" FROM LOGIN "<Azure user email>";  (In Database & Master)
 ALTER ROLE db_owner ADD MEMBER "<Azure user email>";  (In Database)
 
 
